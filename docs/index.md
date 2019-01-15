@@ -54,7 +54,7 @@ Head Toolbar
 Input
 ---
 ```php
-@component('$THEME$',[
+@component('components.themes.default.input',[
     'type' => '$TEXT$',
     'label' => '$LABEL$',
     'name' => '$NAME$',
@@ -72,7 +72,7 @@ Input
 Double Input
 ---
 ```php
-@component('$THEME$',[
+@component('components.themes.default.input-input',[
     'label'           => '$label$',
     'helpText'        => '$helpText$',
     
@@ -98,7 +98,7 @@ Double Input
 Input and Select
 ---
 ```php
-@component('$THEME$',[
+@component('components.themes.default.input-select',[
     'type' => '$TEXT$',
     'label' => '$LABEL$',
     'name' => '$NAME$',
