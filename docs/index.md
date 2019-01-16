@@ -15,6 +15,7 @@ append| Empty String | No
 leftCol| col-sm-3 | No
 rightCol| col-sm-3 | No
 align| text-md-right | No
+required| false | No
 
 ---------------------
 
