@@ -1,7 +1,7 @@
 TFS2R Blade Components
 ===
 
-All the components have the following properties common:
+All the form components have the following properties common:
 
 Property | Default Value| Required?
 :------------ | :------------- | :------------
@@ -18,6 +18,20 @@ align| text-md-right | No
 required| false | No
 
 ---------------------
+Form Base
+---
+
+```php
+@component('components.themes.default.form-base', [
+    'action' => route('$action$'),
+    'form' => '$form$',
+    'method' => '$method$',
+    '$model$' => $$$model$
+])
+    <button type="submit" class="btn btn-primary btn-block">Add</button>
+@endcomponent
+```
+
 
 Input
 ---
@@ -38,6 +52,18 @@ Input
 
 ---
 
+Textarea
+---
+```php
+@component('components.themes.default.textarea',[
+    'label' => '$LABEL$',
+    'name' => '$NAME$',
+    'value' => $VALUE$->$NAME$,
+    'helpText' => '$HELPTEXT$'
+])@endcomponent
+```
+---
+
 CheckBox
 ---
 
@@ -51,6 +77,36 @@ CheckBox
 ])@endcomponent
 ```
 
+---
+
+Radio
+---
+```php
+@component('components.themes.default.radio',[
+    'label' => '$LABEL$',
+    'name' => '$NAME$',
+    'value' => '$VALUE$'
+    'options' => [['label' => '$OPTIONLABEL$', 'value' => '$OPTIONVALUE$']],
+    'helpText' => '$HELPTEXT$',
+])@endcomponent
+```
+---
+
+Select
+---
+```php
+@component('components.themes.default.select',[
+    'label' => '$LABEL$',
+    'name' => '$NAME$',
+    'value' => old('$NAME$', $MODEL$->$NAME$),
+    'helpText' => '$HELPTEXT$',
+    'options' => $$$NAME$Options,
+    'optionValueKey' => '$optionValueKey$',
+    'optionTextKey'  => '$optionTextKey$',
+    'leftCol'        => '$leftCol$',
+    'rightCol'       => '$rightCol$',
+])@endcomponent
+```
 ---
 
 File
@@ -67,27 +123,30 @@ File
 ])@endcomponent
 ```
 
-Form Base
+Label
 ---
 ```php
-@component('components.themes.default.form-base', [
-    'action' => route('$action$'),
-    'form' => '$form$',
-    'method' => '$method$',
-    '$model$' => $$$model$
-])
-    <button type="submit" class="btn btn-primary btn-block">Add</button>
-@endcomponent
+@component('components.themes.default.label',[
+    'name' => '$name$',
+    'label' => '$label$',
+    'value' => $model$->$name$,
+    'types' => [ $types$ ],
+    'exclude' => [ $exclude$ ]
+])@endcomponent
+
 ```
-Head Toolbar
+---
+
+Map
 ---
 ```php
-'toolbar' => [
-    [
-        'label' => '$LABEL$',
-        'url' => $URL$
-    ]
-]
+@component('components.themes.default.map',[
+    'label' => '$label$',
+    'name' => '$name$',
+    'value' => $$$model$->$name$,
+    'helpText' => '$helpText$',
+    'placeholder' => '$placeholder$',
+])@endcomponent
 ```
 ---
 
@@ -95,6 +154,32 @@ Double Input
 ---
 ```php
 @component('components.themes.default.input-input',[
+    'label'           => '$label$',
+    'helpText'        => '$helpText$',
+    
+    'name1'           => '$name1$',
+    'value1'           => $$$value1$->$name1$,
+    'prepend1'         => '$prepend1$',
+    'append1'          => '$append1$',
+    'options1'         =>  $options1$,
+    'option1ValueKey' => '$option1ValueKey$',
+    'option1TextKey'  => '$option1TextKey$',
+
+    'name2'           => '$name2$',
+    'value2'           => $$$value2$->$name2$,
+    'prepend2'         => '$prepend2$',
+    'append2'          => '$append2$',
+    'options2'        =>  $options2$,
+    'option2ValueKey' => '$option2ValueKey$',
+    'option2TextKey'  => '$option2TextKey$',
+])@endcomponent
+```
+---
+
+Double Select
+---
+```php
+@component('components.themes.default.select-select',[
     'label'           => '$label$',
     'helpText'        => '$helpText$',
     
@@ -140,30 +225,15 @@ Input and Select
 ```
 ---
 
-Label
+Head Toolbar
 ---
 ```php
-@component('components.themes.default.label',[
-    'name' => '$name$',
-    'label' => '$label$',
-    'value' => $model$->$name$,
-    'types' => [ $types$ ],
-    'exclude' => [ $exclude$ ]
-])@endcomponent
-
-```
----
-
-Map
----
-```php
-@component('components.themes.default.map',[
-    'label' => '$label$',
-    'name' => '$name$',
-    'value' => $$$model$->$name$,
-    'helpText' => '$helpText$',
-    'placeholder' => '$placeholder$',
-])@endcomponent
+'toolbar' => [
+    [
+        'label' => '$LABEL$',
+        'url' => $URL$
+    ]
+]
 ```
 ---
 
@@ -239,19 +309,6 @@ $END$
 ```
 ---
 
-Radio
----
-```php
-@component('components.themes.default.radio',[
-    'label' => '$LABEL$',
-    'name' => '$NAME$',
-    'value' => '$VALUE$'
-    'options' => [['label' => '$OPTIONLABEL$', 'value' => '$OPTIONVALUE$']],
-    'helpText' => '$HELPTEXT$',
-])@endcomponent
-```
----
-
 Record Navigator
 ---
 ```php
@@ -260,49 +317,6 @@ Record Navigator
     'route' => '$ROUTE$',
     'previous' => $previous,
     'next' => $next
-])@endcomponent
-```
----
-
-Select
----
-```php
-@component('components.themes.default.select',[
-    'label' => '$LABEL$',
-    'name' => '$NAME$',
-    'value' => old('$NAME$', $MODEL$->$NAME$),
-    'helpText' => '$HELPTEXT$',
-    'options' => $$$NAME$Options,
-    'optionValueKey' => '$optionValueKey$',
-    'optionTextKey'  => '$optionTextKey$',
-    'leftCol'        => '$leftCol$',
-    'rightCol'       => '$rightCol$',
-])@endcomponent
-```
----
-
-Double Select
----
-```php
-@component('components.themes.default.select-select',[
-    'label'           => '$label$',
-    'helpText'        => '$helpText$',
-    
-    'name1'           => '$name1$',
-    'value1'           => $$$value1$->$name1$,
-    'prepend1'         => '$prepend1$',
-    'append1'          => '$append1$',
-    'options1'         =>  $options1$,
-    'option1ValueKey' => '$option1ValueKey$',
-    'option1TextKey'  => '$option1TextKey$',
-
-    'name2'           => '$name2$',
-    'value2'           => $$$value2$->$name2$,
-    'prepend2'         => '$prepend2$',
-    'append2'          => '$append2$',
-    'options2'        =>  $options2$,
-    'option2ValueKey' => '$option2ValueKey$',
-    'option2TextKey'  => '$option2TextKey$',
 ])@endcomponent
 ```
 ---
@@ -337,16 +351,3 @@ Sidebar Parent Menu
 @endcomponent
 ```
 ---
-
-Textarea
----
-```php
-@component('components.themes.default.textarea',[
-    'label' => '$LABEL$',
-    'name' => '$NAME$',
-    'value' => $VALUE$->$NAME$,
-    'helpText' => '$HELPTEXT$'
-])@endcomponent
-```
----
-
