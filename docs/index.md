@@ -1,3 +1,42 @@
+TFS2R Blade Components
+===
+
+All the components have the following properties common:
+
+Property | Default Value| Required?
+:------------ | :------------- | :------------
+name | None | Yes
+label | Empty String  | No
+value| Empty String| No. Depends on required property
+helpText| Empty String | No
+placeholder| Empty String | No
+prepend| Empty String | No
+append| Empty String | No
+leftCol| col-sm-3 | No
+rightCol| col-sm-3 | No
+align| text-md-right | No
+
+---------------------
+
+Input
+---
+```php
+@component('components.themes.default.input',[
+    'type' => '$TEXT$',
+    'label' => '$LABEL$',
+    'name' => '$NAME$',
+    'value' => $VALUE$->$NAME$,
+    'helpText' => '$HELPTEXT$',
+    'placeholder' => '$PLACEHOLDER$',
+    'prepend' => '$PREPEND$',
+    'append' => '$APPEND$',
+    'leftCol'        => '$leftCol$',
+    'rightCol'       => '$rightCol$',
+])@endcomponent
+```
+
+---
+
 CheckBox
 ---
 
@@ -11,7 +50,7 @@ CheckBox
 ])@endcomponent
 ```
 
-****
+---
 
 File
 ---
@@ -48,24 +87,6 @@ Head Toolbar
         'url' => $URL$
     ]
 ]
-```
----
-
-Input
----
-```php
-@component('components.themes.default.input',[
-    'type' => '$TEXT$',
-    'label' => '$LABEL$',
-    'name' => '$NAME$',
-    'value' => $VALUE$->$NAME$,
-    'helpText' => '$HELPTEXT$',
-    'placeholder' => '$PLACEHOLDER$',
-    'prepend' => '$PREPEND$',
-    'append' => '$APPEND$',
-    'leftCol'        => '$leftCol$',
-    'rightCol'       => '$rightCol$',
-])@endcomponent
 ```
 ---
 
