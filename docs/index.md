@@ -21,6 +21,8 @@ required| false | No
 Form Base
 ---
 
+Wraps one or more form fields know as form components. with an action button which allows form data to be submitted.
+
 ```php
 @component('components.themes.default.form-base', [
     'action' => route('$action$'),
@@ -32,6 +34,13 @@ Form Base
 @endcomponent
 ```
 
+Property | Default Value| Required?
+:------------ | :------------- | :------------
+action | Empty. any plain url or route() | No
+form | Empty. path to blade component containing form components | Yes
+method| POST. Accepts GET, POST| No
+
+---
 
 Input
 ---
@@ -295,32 +304,6 @@ Nav Tab Item
 ```
 ---
 
-Page Navigator
----
-```php
-@component('components.record-navigator', [
-    'heading' => '$HEADING$',
-    'route' => '$ROUTE$',
-    'previous' => $PREV$,
-    'next' => $NEXT$
-])@endcomponent
-
-$END$
-```
----
-
-Record Navigator
----
-```php
-@component('components.record-navigator', [
-    'heading'=> $HEADING$,
-    'route' => '$ROUTE$',
-    'previous' => $previous,
-    'next' => $next
-])@endcomponent
-```
----
-
 Sidebar
 ---
 ```php
@@ -349,5 +332,31 @@ Sidebar Parent Menu
       ]
     ])
 @endcomponent
+```
+---
+
+Page Navigator
+---
+```php
+@component('components.record-navigator', [
+    'heading' => '$HEADING$',
+    'route' => '$ROUTE$',
+    'previous' => $PREV$,
+    'next' => $NEXT$
+])@endcomponent
+
+$END$
+```
+---
+
+Record Navigator
+---
+```php
+@component('components.record-navigator', [
+    'heading'=> $HEADING$,
+    'route' => '$ROUTE$',
+    'previous' => $previous,
+    'next' => $next
+])@endcomponent
 ```
 ---
