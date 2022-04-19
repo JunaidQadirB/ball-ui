@@ -1,4 +1,4 @@
-TFS2R Blade Components
+BALL UI Components
 ===
 
 All the form components have the following properties common:
