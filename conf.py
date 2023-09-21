@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'TFS2r Components'
+project = 'BALL UI Components'
 copyright = '2019, Junaid Qadir Shekhanzai <shekhanzai.baloch@gmail.com>'
 author = 'Junaid Qadir Shekhanzai <shekhanzai.baloch@gmail.com>'
 
@@ -86,7 +86,9 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'navigation_depth': 4,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
